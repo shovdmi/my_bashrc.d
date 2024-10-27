@@ -1,0 +1,16 @@
+current_script_path=$(dirname "${BASH_SOURCE[0]}")
+
+PATH=$PATH:/home/dshovkun/Downloads/nvim-linux64/bin/
+
+#export LC_ALL=C
+
+source $current_script_path/bash_completion.d/find.source
+source $current_script_path/helpme.source
+
+echo -ne $(cat $current_script_path/readline.md | sed  's/$/\\n/' | sed 's/ /\\a /g')
+
+
+#[ -n "$SSH_CONNECTION" ] && echo -e "\033]11;#336699\a"
+[ -n "$SSH_CONNECTION" ] && PS1="\[\033[01;31mSSH\[\033[00m ${PS1}"
+
+ls -1 /tmp/dtach* 2>/dev/null
