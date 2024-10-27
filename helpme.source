@@ -9,16 +9,17 @@
 #		echo #Newline
 #	done
 #done
- 
-function show_usage_search {
-local r=$'\e[1;31m'
-local rr=$'\e[0;49;31m'
-local g=$'\e[1;32m'
-local y=$'\e[1;33m'
-local yy=$'\e[0;49;33m'
-local n=$'\e[0m'
-local gr=$'\e[1;40;30m'
 
+r=$'\e[1;31m'
+rr=$'\e[0;49;31m'
+g=$'\e[1;32m'
+y=$'\e[1;33m'
+yy=$'\e[0;49;33m'
+n=$'\e[0m'
+gr=$'\e[1;40;30m'
+
+
+function show_usage_search {
 #see Bash Heredoc   
    cat<<EOF
 
@@ -96,6 +97,21 @@ ${gr}---------------------------------------------------------------------------
 EOF
 }
 
+
+function show_usage_grep {
+cat<<EOF
+  grep "cent[er][re]" file	# ${gr}center(Ame)/centre(Br)${n}
+  grep -e regex1 -e regex2 filename
+  grep "foo\|bar" filename
+  grep -rIn --include=\*.{c,h,cpp,hpp,cc} "pattern" ./
+  ${gr}    -I -- ignore binary, -n -- show filename and line number, -r -- recursively ${n}
+  grep --context|before-context|after-context 3
+  ${gr}    Print 3 lines of context around, before, or after each match${n}
+  LC_CTYPE=ru_RU.CP866 grep -rIn --include=\*.{c,h,cpp,hpp,cc} "pattern" ./
+EOF
+}
+
+
 function show_help {
 	case "$1" in
         search) show_usage_search
@@ -104,7 +120,9 @@ function show_help {
             ;;
         tar) show_usage_tar
             ;;
-        *) echo -e "Use \"helpme WITH_WHAT\"\n\tsearch\n\tfind\n\ttar..." 
+        grep) show_usage_grep
+            ;;
+        *) echo -e "Use \"helpme WITH_WHAT\"\n\tsearch\n\tfind\n\ttar\tgrep..." 
             ;;
 	esac
 }
