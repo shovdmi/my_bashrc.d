@@ -1,6 +1,6 @@
 current_script_path=$(dirname "${BASH_SOURCE[0]}")
 
-PATH=$PATH:/home/dshovkun/Downloads/nvim-linux64/bin/
+PATH=$PATH:/opt/nvim-linux64/bin/
 
 #export LC_ALL=C
 
