@@ -35,3 +35,4 @@
 \e[01;97mAlt+* \e[0m	Вставить все возможные завершения 
 
 \e[01;97mCtrl+x+e\e[0m	Редактирование комманды в $EDITOR 
+\e[01;97m~.      \e[0m	Terminate session (for help press ~?) 
